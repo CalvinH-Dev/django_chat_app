@@ -47,11 +47,9 @@ class ChatView(View):
         try:
             chat_message.clean_fields()
         except ValidationError as ve:
-            print(ve)
             return JsonResponse(ve.message_dict, status=422, safe=False)
 
         chat_message.save()
-        print(chat_message)
 
         response_object = {"name": name, "message": message}
 
