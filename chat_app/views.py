@@ -9,7 +9,9 @@ from .models import Chat
 
 class ChatView(View):
     def get(self, request: HttpRequest):
-        return HttpResponse("ok get")
+        chat_messages = Chat.objects.all().values()
+        response = list(chat_messages)
+        return JsonResponse(response, safe=False)
 
     def post(self, request: HttpRequest):
         try:
