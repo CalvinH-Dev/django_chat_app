@@ -1,4 +1,4 @@
-from json import dumps, loads
+from json import loads
 
 from django.forms import ValidationError
 from django.http import HttpRequest, HttpResponse, JsonResponse
