@@ -14,9 +14,6 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[django-html]": {
-    "editor.defaultFormatter": "monosans.djlint"
-  },
   "python.analysis.autoSearchPaths": false,
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.typeCheckingMode": "strict",
