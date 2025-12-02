@@ -28,20 +28,6 @@ class ChatView(View):
                 status=422,
             )
 
-        name_max_length: int = Chat.name.field.max_length  # type: ignore
-        mesage_max_length: int = Chat.message.field.max_length  # type: ignore
-
-        if len(name) > name_max_length:
-            return HttpResponse(
-                f"Field 'name' too long (max {name_max_length}).", status=422
-            )
-
-        if len(message) > mesage_max_length:
-            return HttpResponse(
-                f"Field 'message' too long (max {mesage_max_length}).",
-                status=422,
-            )
-
         chat_message = Chat(name=name, message=message)
 
         try:
