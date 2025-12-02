@@ -1,6 +1,7 @@
 const container = document.getElementById("container");
 const template = document.getElementById("item-template");
 const form = document.getElementById("form");
+const chatURL = "http://localhost:8000/chat/";
 
 form.addEventListener("submit", (event) => {
 	event.preventDefault();
@@ -15,7 +16,7 @@ form.addEventListener("submit", (event) => {
 
 async function fetch_messages() {
 	container.innerHTML = "";
-	const response = await fetch("http://localhost:8000");
+	const response = await fetch(chatURL);
 	const data = await response.json();
 
 	for (const message of data) {
@@ -30,7 +31,7 @@ async function fetch_messages() {
 }
 
 async function post_message(data) {
-	const response = await fetch("http://localhost:8000", {
+	const response = await fetch(chatURL, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(data),
